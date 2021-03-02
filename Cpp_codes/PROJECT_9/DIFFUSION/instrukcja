@@ -1,0 +1,14 @@
+1. Program rozwiązuje równanie różniczkowe metodą trzydiagonali (tridiagonal).
+2. W naszym przykładzie liczymy temperaturę wewnątrz ściany w zależności od jej przenikalności cieplnej oraz różnicy temperatur z obu jej stron.
+3. Programowi do szczęścia potrzebne są informacje o czterech parametrach:
+   temperaturze z jednej strony sćiany - FI_zero,
+   temperaturze z drugiej strony sciany - FI_N,
+   wzorze na funkcję przenikalności cieplnej D
+   wzorze na pochodną funkcji przenikalności cieplnej D_prim.
+
+Dwa pierwsze parametry podajemy na początku programu poprzez #define.
+Wzory na przenikalnosć musimy edytować w funkcji Init().
+
+Wersja podstawowa programu opisuje ścianę o przenikalnosci cieplnej opisanej rosnącą funkcją liniową - przypadek raczj żadko spotykany. Bardziej realne są parametry z zadania drugiego, w którym mamy ścianę o stałej przenikalności cieplnej D = 1 i co za tym idzie D' = 0.
+
+Zadanie trzecie z kolei opisuje przypadek pokazany w wersji podstawowej programu - współczynnik przenikalności ma być funkcją rosnącą lub malejącą. Musimy porównać rozkłady temperatur dla różnych współczynników kierunkowych prostych opisujących funkcję przenikalności (ujemnych i dodatnich). 

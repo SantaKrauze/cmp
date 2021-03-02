@@ -1,1 +1,1 @@
-# cmp
+# Computataional Methods in Physics 
