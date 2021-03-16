@@ -1,8 +1,0 @@
-Program został napisany obektowo i umożliwia analizę do 10 oddziałujących wzajemnie obiektów.
-
-W odróżnieniu od wersji fortranowskiej brak tu jednego dużego środka masy, wszystkie obiekty działają w identyczny sposób.
-
-Suma pędów wszystkich obiektów na ogół nie jest zerowa, zatem cały układ powinien się poruszać ruchem jednostajnym. Aby uprościć analizę trajektorii istnieje domyślnie wybrana opcja ruchu układu współrzędnych razem ze środkiem masy. 
-
-Stabilność:
-Aby ułatwić dobieranie parametów dla bardziej skomplikowanych układów przygotowałem funkcję badającą na początku energię całkowitą każdego z obiektów, co pozwala stwierdzić czy układ powinien być stabilny. Energia całkowita jest różnicą energii kinetycznej i potencjalnej względem środka masy. Możemy przyjąć takie uproszczenie schematu, ponieważ z bardo dużej odległości - dystansu który w pewnym momecie osiągnie dowolny niestabilny obiekt - cały nasz układ planetarny zlewa się w jeden punkt.
