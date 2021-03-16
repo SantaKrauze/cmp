@@ -5,24 +5,26 @@ from math import sin,cos,sqrt
 from fzero import bisek
 import matplotlib.pyplot as plt
 def feven(E):
-    k=sqrt(2.*(Vo+E))
+    k=sqrt(2.*(V+E))
     return sin(k*a/2.)-cos(k*a/2.)*sqrt(-2.*E)/k
 
 def fodd(E):
-    k=sqrt(2.*(Vo+E))
-    return sin(k*a/2.)+cos(k*a/2.)*k/sqrt(-2.*E)
+    k=sqrt(2.*(V+E))
+    return sin(k*a/2.) + cos(k*a/2.)*k/sqrt(-2.*E)
 
 oddFile=open("tableOdd","w")
 evenFile=open("tableEven","w")
 
-Vo=10.
-a=2.
+#V=10.
+V=1.
+a=3.
+#a=2.
 np=1000
 
-h=Vo/np
-dE=Vo/100.
-tol=Vo/1000.
-E1=-Vo+0.00001*Vo
+h=V/np
+dE=V/100.
+tol=V/1000.
+E1=-V+0.00001*V
 E2=E1+dE
 
 zero=[]
@@ -31,7 +33,7 @@ evenplot=[]
 energies=[]
 
 for i in range(1,np-1):
-    E=-Vo+i*h
+    E=-V+i*h
     energies.append(E)
     odd=fodd(E)
     even=feven(E)
@@ -54,9 +56,11 @@ while (E2<0.):
     E1=E2
     E2=E1+dE
 
-plt.plot(evenplot,energies,'b-')
-plt.show()
-plt.plot(oddplot,energies,'b-')
+plt.plot(energies,evenplot)
+plt.plot(energies,oddplot)
+plt.grid(True)
+plt.xlabel("E")
+plt.ylabel("F(E)")
 plt.show()
 
 print(zero)
