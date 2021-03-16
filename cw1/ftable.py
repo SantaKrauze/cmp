@@ -16,7 +16,7 @@ npoints=1000
 
 ### INPUT
 
-file=open("tableout",'w')
+file=open("tableouti.out",'w')
 
 h=(xr-xl)/(npoints-1)
 xarr=[]
@@ -27,6 +27,6 @@ for i in range(0,npoints+1):
         xarr.append(x)
         yarr.append(function(x))
         file.write(str(x)+" "+str(function(x))+"\n") 
-#        file.close()
+file.close()
 plt.plot(xarr,yarr,'b-')
 plt.show()

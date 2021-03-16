@@ -12,9 +12,6 @@ def fodd(E):
     k=sqrt(2.*(V+E))
     return sin(k*a/2.) + cos(k*a/2.)*k/sqrt(-2.*E)
 
-oddFile=open("tableOdd","w")
-evenFile=open("tableEven","w")
-
 #V=10.
 V=1.
 a=3.
@@ -31,6 +28,9 @@ zero=[]
 oddplot=[]
 evenplot=[]
 energies=[]
+
+oddFile=open("tableOdd.out","w")
+evenFile=open("tableEven.out","w")
 
 for i in range(1,np-1):
     E=-V+i*h
