@@ -13,17 +13,15 @@ def fodd(E):
     return sin(k*a/2.) + cos(k*a/2.)*k/sqrt(-2.*E)
 
 #V=10.
-V=1.
-a=3.
 #a=2.
+V=.65
+a=3.95
 np=1000
-
 h=V/np
 dE=V/100.
 tol=V/1000.
 E1=-V+0.00001*V
 E2=E1+dE
-
 zero=[]
 oddplot=[]
 evenplot=[]
@@ -39,7 +37,6 @@ for i in range(1,np-1):
     even=feven(E)
     oddplot.append(odd)
     evenplot.append(even)
-
     oddFile.write(str(E)+" "+str(odd)+"\n")
     evenFile.write(str(E)+" "+str(even)+"\n")
 
@@ -56,11 +53,11 @@ while (E2<0.):
     E1=E2
     E2=E1+dE
 
+print(zero)
+
 plt.plot(energies,evenplot)
 plt.plot(energies,oddplot)
 plt.grid(True)
 plt.xlabel("E")
 plt.ylabel("F(E)")
 plt.show()
-
-print(zero)
