@@ -3,11 +3,12 @@
 # M. P. Polak & P. Scharoch 2017
 
 import matplotlib.pyplot as plt
-from math import sin,cos
+from mpl_toolkits import mplot3d
+from math import sin,cos,sqrt
 
 def function(x,y):
-    sqrt=sqrt(x^2+y^2)
-	return sin(sqrt)/sqrt
+    sqr=sqrt(x*x + y*y)
+    return sin(sqr)/sqr
 
 xl=-10.
 xr=10.
@@ -28,7 +29,13 @@ for i in range(0,npoints+1):
     xarr.append(x)
     yarr.append(y)
     zarr.append(function(x,y))
-    file.write(str(x)+" "+str(y)+" "+str(function(x,y))"\n") 
+    file.write(str(x)+" "+str(y)+" "+str(function(x,y))+"\n") 
     #file.close()
-plt.plot(xarr,yarr,zarr,'b-')
+
+fig=plt.figure()
+#ax=plt.axes(projection='3d')
+ax=fig.add_subplot(111,projection='3d')
+#ax.plot_surface(xarr,yarr,zarr)
+ax.set_title('sin(sqrt(x^2 + y^2))/sqrt(x^2 + y^2)')
+ax.plot(xarr,yarr,zarr)
 plt.show()
