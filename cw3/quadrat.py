@@ -13,4 +13,5 @@ def fun(x):
     return exp(x)
 
 if __name__ == "__main__":
+    print("e^x | 0->1")
     print(simpson(0,1,1000,fun))

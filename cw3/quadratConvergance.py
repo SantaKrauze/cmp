@@ -9,25 +9,27 @@ xr=1
 hValues=[]
 logValues=[]
 simpsonValues=[]
-calcTime=[]
+calcTimes=[]
 
-while N <= 50000000000000000:
+while N <= 500000000:
     h = (xr-xl)/N/2
     hValues.append(h)
     logValues.append(-log(h))
     start = time.time()
     simpsonValues.append(simpson(xl,xr,N,fun))
     end = time.time()
-    calcTime.append(end-start)
+    calcTimes.append(end-start)
     N *= 2
 
 plt.plot(logValues,simpsonValues)
-plt.grid(True)
-plt.xlabel("log(h)")
+plt.grid(1)
+plt.title("Nf = "+str(N))
+plt.xlabel("-log(h)")
 plt.ylabel("F")
 plt.show()
-plt.plot(logValues,calcTime)
-plt.grid(True)
-plt.xlabel("log(h)")
+plt.plot(logValues,calcTimes)
+plt.grid(1)
+plt.title("Nf = "+str(N))
+plt.xlabel("-log(h)")
 plt.ylabel("t(h)")
 plt.show()
