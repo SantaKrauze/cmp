@@ -1,5 +1,5 @@
 from quadrat import simpson
-from math import sqrt
+from math import sqrt, log
 import matplotlib.pyplot as plt
 
 def fun(x):

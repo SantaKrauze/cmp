@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# M. P. Polak & P. Scharoch 2017
-
 from math import cos,sin,pi,sqrt
 from quadrat import simpson
 import matplotlib.pyplot as plt
@@ -17,7 +14,6 @@ ndiv = 100
 ampl = 1.
 lmbd = 1.
 k = 2.*pi/lmbd
-#d=50,a=2
 d = 20.
 a = 5.
 yl = -50.
