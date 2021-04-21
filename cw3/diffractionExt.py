@@ -31,11 +31,11 @@ i1arr = []
 i2arr = []
 
 for iy in range(1, ny):
-	y = yl+(iy-1.)*hy
+    y = yl+(iy-1.)*hy 
     i1 = simpson(-a/2., a/2., ndiv, real_amp)**2+simpson(-a/2, a/2, ndiv, imag_amp)**2
-    i2 = simpson(-a/2., -a/4., ndiv, real_amp)**2+simpson(-a/2, -a/4, ndiv, imag_amp)**2+simpson(a/4., a/2., ndiv, real_amp)**2+simpson(a/4, a/2, ndiv, imag_amp)**2
-	yarr.append(y)
-	i1arr.append(i1)
+    i2 = simpson(-a/2., -a/4., ndiv, real_amp)**2 + simpson(-a/2, -a/4, ndiv, imag_amp)**2 + simpson(a/4., a/2., ndiv, real_amp)**2 + simpson(a/4, a/2, ndiv, imag_amp)**2
+    yarr.append(y)
+    i1arr.append(i1)
     i2arr.append(i2)
 
 plt.plot(yarr,i1arr)
