@@ -13,15 +13,15 @@ def imag_amp(x):
 	r = (d*d+(y-x)**2)**(1./2.)
 	return ampl*sin(k*r)/(sqrt(r))
 
-ndiv = 100
+ndiv = 1000
 ampl = 1.
-lmbd = 1.
+lmbd = .02
 k = 2.*pi/lmbd
 #d=50,a=2
-d = 20.
-a = 5.
-yl = -50.
-yr = 50.
+d = 100
+a = 105
+yl = -200.
+yr = 200.
 ny = 100
 
 hy = (yr-yl)/ny
@@ -35,7 +35,9 @@ for iy in range(1, ny):
 	yarr.append(y)
 	iarr.append(i)
 
+ymin = lmbd*d/a
 plt.plot(yarr,iarr)
+#plt.axvline(x = ymin, color='grey')
 plt.grid(1)
 plt.title("a = "+str(a)+" ,d = "+str(d)+" ,lambda = "+str(lmbd))
 plt.xlabel("y")

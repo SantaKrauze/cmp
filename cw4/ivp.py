@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # M. P. Polak & P. Scharoch 2017
+import matplotlib.pyplot as plt
 
 def euler(a,b,n,y0,fun):
     h=(b-a)/n
@@ -31,3 +32,15 @@ def ab3(a,b,n,y0,fun):
         yp.append(yp[i]+h/12.*(23.*fun(xp[i],yp[i])-16.*fun(xp[i-1],yp[i-1])+5.*fun(xp[i-2],yp[i-2])))
         xp.append(xp[i]+h)
     return xp,yp
+
+def fun(x,y):
+    return y
+
+if __name__ == "__main__":
+    plt.plot(euler(0,3,10,0,fun))
+    #plt.plot(rk4(0,3,10,0,fun))
+    #plt.plot(ab3(1,0,1,0,fun))
+    plt.show()
+    #print(euler(0,3,10,1,fun))
+    #print(rk4(1,0,1000,0,fun))
+    #print(ab3(1,10,1000,0,fun))
