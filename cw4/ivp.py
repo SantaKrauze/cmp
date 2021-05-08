@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # M. P. Polak & P. Scharoch 2017
 import matplotlib.pyplot as plt
-from math import exp 
+from math import exp
 
 def euler(a, b, n, y0, fun):
     h = (b-a)/n
@@ -11,7 +11,7 @@ def euler(a, b, n, y0, fun):
         yp.append(yp[i]+h*fun(xp[i],yp[i]))
         xp.append(xp[i]+h)
     return xp,yp
-        
+
 def rk4(a, b, n, y0, fun):
     h = (b-a)/n
     yp = [y0]
@@ -27,8 +27,8 @@ def rk4(a, b, n, y0, fun):
 
 def ab3(a, b, n, y0, fun):
     h = (b-a)/n
-    #yp=list(y0)
-    yp = [y0]
+    #yp = list(y0,y0+h,y0+h+h)
+    yp = [y0, y0+h, y0+h+h]
     xp = [a,a+h,a+h+h]
     for i in range(2,n):
         yp.append(yp[i]+h/12.*(23.*fun(xp[i],yp[i])-16.*fun(xp[i-1],yp[i-1])+5.*fun(xp[i-2],yp[i-2])))
@@ -43,23 +43,25 @@ def fun(x):
 
 if __name__ == "__main__":
     a = 0
-    b = 3
+    b = 10
     n = 10
     y0 = 1
     x = []
     y = []
     h = (b-a)/n
     i = 0
-    while i < b:
+    while i <= b:
         x.append(i)
         y.append(fun(i))
         i += h
 
     eulerX, eulerY = euler(a, b, n, y0, dFun)
     rkX, rkY = rk4(a, b, n, y0, dFun)
-    #abX, abY = ab3(a, b, n, y0, dFun)
-    plt.plot(x, y)
-    plt.plot(eulerX, eulerY) 
-    plt.plot(rkX, rkY)
-    #plt.plot(abX, abY)
+    abX, abY = ab3(a, b, n, y0, dFun)
+    plt.plot(x, y, label='exp(x)')
+    plt.plot(eulerX, eulerY, label='euler')
+    plt.plot(rkX, rkY, label='rk4')
+    plt.plot(abX, abY, label='ab3')
+    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left', ncol=2, mode="expand", borderaxespad=0.)
+    #plt.rcParams["figure.figsize"] = (40,30)
     plt.show()
