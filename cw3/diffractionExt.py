@@ -27,20 +27,19 @@ i1arr = []
 i2arr = []
 
 y = 0
-
 i2Max = (simpson(-2*a, -a, ndiv, real_amp) + simpson(a, 2*a, ndiv, real_amp))**2 + (simpson(a, 2*a, ndiv, imag_amp) + simpson(-2*a, -a, ndiv, imag_amp))**2
-
 i1Max = simpson(-a/2., a/2., ndiv, real_amp)**2+simpson(-a/2, a/2, ndiv, imag_amp)**2
 
-
 for iy in range(1, ny):
-    y = yl+(iy-1.)*hy 
+    y = yl+(iy-1.)*hy
     i1 = simpson(-a/2., a/2., ndiv, real_amp)**2+simpson(-a/2, a/2, ndiv, imag_amp)**2
     i2 = (simpson(-2*a, -a, ndiv, real_amp) + simpson(a, 2*a, ndiv, real_amp))**2 + (simpson(a, 2*a, ndiv, imag_amp) + simpson(-2*a, -a, ndiv, imag_amp))**2
     yarr.append(y)
     i1arr.append(i1/i1Max)
     i2arr.append(i2/i2Max)
 
+ymin = lmbd*d/a
+plt.axvline(x = ymin, color='grey')
 plt.plot(yarr,i1arr)
 plt.plot(yarr,i2arr)
 plt.grid(1)

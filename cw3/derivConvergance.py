@@ -7,7 +7,7 @@ logValues=[]
 fp3Values=[]
 fpp3Values=[]
 
-for i in range (1,hMin):
+for i in range (1, 8):
     h = 10**-i
     logValues.append(-log10(h))
     fp3Values.append(fp3(1,h,fun2))
