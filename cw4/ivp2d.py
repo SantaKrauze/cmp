@@ -29,10 +29,10 @@ def rk4_2d(a,b,n,y1_0,y2_0,fun1,fun2):
     return xp,yp_1,yp_2
 
 def fun1(x, y1, y2):
-    return y1*y2 + y2*x
+    return y1
 
 def fun2(x, y1, y2):
-    return y2*y1 + y2*x
+    return -y2
 
 if __name__ == "__main__":
     a = 0

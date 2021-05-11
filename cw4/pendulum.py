@@ -3,6 +3,7 @@
 
 from math import sin,cos,sqrt
 from ivp2d import rk4_2d
+import matplotlib.pyplot as plt
 
 def dfalfa(t,alfa,omega):
     return omega
@@ -27,3 +28,6 @@ h=(tE-t0)/np
 
 t,alfa,omega=rk4_2d(t0,tE,np,alfa0,omega0,dfalfa,dfomega)
 Etot=[0.5*m*l*l*om**2+m*g*l*(1.-cos(alf)) for om,alf in zip(omega,alfa)] # this is a clever way of iterating over both omega and alfa and using them to create Etot, instead of using a loop.
+
+plt.plot(t, alfa)
+plt.show()
