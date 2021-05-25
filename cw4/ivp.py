@@ -44,7 +44,7 @@ def fun(x):
 if __name__ == "__main__":
     a = 0
     b = 10
-    n = 10
+    n = 100
     y0 = 1
     x = []
     y = []

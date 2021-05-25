@@ -29,22 +29,25 @@ def rk4_2d(a,b,n,y1_0,y2_0,fun1,fun2):
     return xp,yp_1,yp_2
 
 def fun1(x, y1, y2):
-    return y1
+    return y2
 
 def fun2(x, y1, y2):
-    return -y2
+    return -k*y1
 
 if __name__ == "__main__":
     a = 0
     b = 20
-    n = 100
-    y1_0 = 2
-    y2_0 = 3
-    rkX, rkY1, rkY2 = rk4_2d(a, b, n, y1_0, y2_0, fun1, fun2)
+    n = 100000
+    k = 1
+    y1_0 = 1
+    y2_0 = 1
 
-    v = np.array([rkX, rkY1, rkY2])
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot(v[:,0], v[:,1], v[:,2])
+    x, y1, y2 = rk4_2d(a, b, n, y1_0, y2_0, fun1, fun2)
+
+    plt.plot(x,y2)
     plt.show()
-    #print(rkX, rkY1, rkY2)
+
+    f = open("ivp2d_out.data","w")
+    for i in range(len(x)):
+        f.write(str(x[i]) + "\t" + str(y1[i]) + "\t" + str(y2[i]) + "\n")
+    f.close()
