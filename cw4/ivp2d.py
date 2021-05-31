@@ -39,12 +39,15 @@ if __name__ == "__main__":
     b = 20
     n = 100000
     k = 1
+    m = 1
     y1_0 = 1
     y2_0 = 1
 
     x, y1, y2 = rk4_2d(a, b, n, y1_0, y2_0, fun1, fun2)
+    E = (m*(y2[n])**2)/2 + ((k*y1[n])**2)/2
 
-    plt.plot(x,y2)
+    print(E)
+    plt.plot(x,y1)
     plt.show()
 
     f = open("ivp2d_out.data","w")
