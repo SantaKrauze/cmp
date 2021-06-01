@@ -59,6 +59,7 @@ if __name__ == "__main__":
     rkX, rkY = rk4(a, b, n, y0, dFun)
     abX, abY = ab3(a, b, n, y0, dFun)
     plt.xlabel("x")
+    plt.xlim([45,50])
     plt.ylabel("y")
     plt.plot(x, y, label='exp(x)')
     plt.plot(eulerX, eulerY, label='euler')

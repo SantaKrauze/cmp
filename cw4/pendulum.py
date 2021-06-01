@@ -11,33 +11,37 @@ def dfalfa(t,alfa,omega):
 def dfomega(t,alfa,omega):
     return -(g/l)*sin(alfa)
 
-g=9.81
 
-frEtop=10
-
-tE=20
-np=1000
-
-l=1.
-m=1.
-E0=frEtop*m*2.*l*g
-t0=0.
-alfa0=0.
-omega0=sqrt(2.*E0/m)/l
-
-h=(tE-t0)/np
+frEtop = 100
+g = 9.81
+tE = 20
+np = 1000
+l = 1.
+m = 1.
+E0 = frEtop*m*2.*l*g
+t0 = 0.
+alfa0 = 0.
+omega0 = sqrt(2.*E0/m)/l
+T = []
+h = (tE-t0)/np
 
 t,alfa,omega=rk4_2d(t0,tE,np,alfa0,omega0,dfalfa,dfomega)
-Etot=[0.5*m*l*l*om**2+m*g*l*(1.-cos(alf)) for om,alf in zip(omega,alfa)] # this is a clever way of iterating over both omega and alfa and using them to create Etot, instead of using a loop.
+Etot=[0.5*m*l*l*om**2+m*g*l*(1.-cos(alf)) for om,alf in zip(omega,alfa)]
+k=0
+for i in range(10,len(omega)-1):
+    if omega[i-1] <= omega[i] and omega[i] >= omega[i+1]:
+        k = i
+        break
 
-T = 1
+T = t[k]
+print(frEtop, T)
 
-plt.title("E = "+str(frEtop))
+plt.title("E = "+str(frEtop)+", T = "+str(T))
 plt.xlabel("t")
-plt.ylabel("alfa")
+plt.ylabel("alpha")
 plt.plot(t, alfa)
 plt.show()
-plt.title("E = "+str(frEtop))
+plt.title("E = "+str(frEtop)+", T = "+str(T))
 plt.xlabel("t")
 plt.ylabel("omega")
 plt.plot(t, omega)
