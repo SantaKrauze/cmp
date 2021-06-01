@@ -36,18 +36,30 @@ def fun2(x, y1, y2):
 
 if __name__ == "__main__":
     a = 0
-    b = 20
-    n = 100000
+    b = 10
+    n = 1000000
     k = 1
     m = 1
     y1_0 = 1
-    y2_0 = 1
+    y2_0 = -1
+    E = []
 
     x, y1, y2 = rk4_2d(a, b, n, y1_0, y2_0, fun1, fun2)
-    E = (m*(y2[n])**2)/2 + ((k*y1[n])**2)/2
+    Ef = (m*(y2[n])**2)/2 + ((k*y1[n])**2)/2
+    for i in range(len(x)):
+        E.append(((m*y2[i])**2)/2 + ((k*y1[i])**2)/2)
 
-    print(E)
+    #print(E)
+    plt.title("Differential, n = "+str(n))
+    plt.xlabel("x")
+    plt.ylabel("y")
     plt.plot(x,y1)
+    plt.show()
+    plt.title("Energy, n = "+str(n))
+    plt.xlabel("x")
+    plt.ylabel("E")
+    #plt.ylim([.95,1.05])
+    plt.plot(x,E)
     plt.show()
 
     f = open("ivp2d_out.data","w")

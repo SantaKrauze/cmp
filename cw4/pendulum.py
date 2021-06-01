@@ -13,8 +13,9 @@ def dfomega(t,alfa,omega):
 
 g=9.81
 
-frEtop=0.1
-tE=20.
+frEtop=10
+
+tE=20
 np=1000
 
 l=1.
@@ -29,5 +30,15 @@ h=(tE-t0)/np
 t,alfa,omega=rk4_2d(t0,tE,np,alfa0,omega0,dfalfa,dfomega)
 Etot=[0.5*m*l*l*om**2+m*g*l*(1.-cos(alf)) for om,alf in zip(omega,alfa)] # this is a clever way of iterating over both omega and alfa and using them to create Etot, instead of using a loop.
 
+T = 1
+
+plt.title("E = "+str(frEtop))
+plt.xlabel("t")
+plt.ylabel("alfa")
 plt.plot(t, alfa)
+plt.show()
+plt.title("E = "+str(frEtop))
+plt.xlabel("t")
+plt.ylabel("omega")
+plt.plot(t, omega)
 plt.show()

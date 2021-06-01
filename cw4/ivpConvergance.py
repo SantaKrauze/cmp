@@ -29,6 +29,8 @@ if __name__ == "__main__":
         rkVals.append(rkY[i])
         i *= 2
 
+    plt.xlabel("-log(h)")
+    plt.ylabel("y")
     plt.plot(logH, eulerVals, label='euler')
     plt.plot(logH, rkVals, label='rk4')
     plt.plot(logH, abVals, label='ab3')

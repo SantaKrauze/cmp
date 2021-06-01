@@ -43,7 +43,7 @@ def fun(x):
 
 if __name__ == "__main__":
     a = 0
-    b = 10
+    b = 50
     n = 100
     y0 = 1
     x = []
@@ -58,6 +58,8 @@ if __name__ == "__main__":
     eulerX, eulerY = euler(a, b, n, y0, dFun)
     rkX, rkY = rk4(a, b, n, y0, dFun)
     abX, abY = ab3(a, b, n, y0, dFun)
+    plt.xlabel("x")
+    plt.ylabel("y")
     plt.plot(x, y, label='exp(x)')
     plt.plot(eulerX, eulerY, label='euler')
     plt.plot(rkX, rkY, label='rk4')
