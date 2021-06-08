@@ -49,7 +49,7 @@ if __name__ == "__main__":
     for i in range(len(x)):
         E.append(((m*y2[i])**2)/2 + ((k*y1[i])**2)/2)
 
-    #print(E)
+    print(E)
     plt.title("Differential, n = "+str(n))
     plt.xlabel("x")
     plt.ylabel("y")

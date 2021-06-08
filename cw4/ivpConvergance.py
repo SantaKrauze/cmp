@@ -11,7 +11,7 @@ def fun(x):
 if __name__ == "__main__":
     a = 0
     b = 1
-    n = 100000
+    n = 1000000
     y0 = 1
     h = (b-a)/n
     i = 1
@@ -19,6 +19,7 @@ if __name__ == "__main__":
     eulerVals=[]
     abVals=[]
     rkVals=[]
+    f = open("convergance.dat","w")
     while i <= n:
         eulerX, eulerY = euler(a, b, i, y0, dFun)
         rkX, rkY = rk4(a, b, i, y0, dFun)
@@ -27,8 +28,10 @@ if __name__ == "__main__":
         eulerVals.append(eulerY[i])
         abVals.append(abY[i])
         rkVals.append(rkY[i])
+        f.write(str(-log10((b-a)/i)) +"\t"+ str(eulerY[i]) +"\t"+ str(abY[i]) +"\t"+ str(rkY[i]) +"\n")
         i *= 2
 
+    f.close()
     plt.xlabel("-log(h)")
     plt.ylabel("y")
     plt.plot(logH, eulerVals, label='euler')

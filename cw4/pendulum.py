@@ -4,6 +4,7 @@
 from math import sin,cos,sqrt
 from ivp2d import rk4_2d
 import matplotlib.pyplot as plt
+import sys
 
 def dfalfa(t,alfa,omega):
     return omega
@@ -12,10 +13,10 @@ def dfomega(t,alfa,omega):
     return -(g/l)*sin(alfa)
 
 
-frEtop = 100
+frEtop = 1
 g = 9.81
 tE = 20
-np = 1000
+np = 100
 l = 1.
 m = 1.
 E0 = frEtop*m*2.*l*g
@@ -34,7 +35,6 @@ for i in range(10,len(omega)-1):
         break
 
 T = t[k]
-print(frEtop, T)
 
 plt.title("E = "+str(frEtop)+", T = "+str(T))
 plt.xlabel("t")
