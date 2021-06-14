@@ -15,8 +15,8 @@ def dfomega(t,alfa,omega):
 
 frEtop = 1
 g = 9.81
-tE = 20
-np = 100
+tE = 70
+np = 100000
 l = 1.
 m = 1.
 E0 = frEtop*m*2.*l*g
